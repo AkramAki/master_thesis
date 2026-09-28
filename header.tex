@@ -1,0 +1,75 @@
+% Shared document class, packages, and formatting for LuaLaTeX.
+% Based on the TUDoThesis template by Maximilian Nöthe; see LICENSE.
+\documentclass[
+  tucolor,               % Remove for headings without TU green.
+  BCOR=12mm,             % Adjust the binding correction for the final binding.
+  parskip=half,
+  open=any,
+  cleardoublepage=plain,
+]{tudothesis}
+
+\setcounter{tocdepth}{1} % List chapters and sections in the contents.
+\usepackage[aux]{rerunfilecheck}
+
+% Fonts and languages. The last Babel language is the main language.
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage[ngerman, american]{babel}
+\usepackage[autostyle]{csquotes}
+\usepackage{microtype}
+
+% Mathematics. unicode-math supplies the symbols formerly loaded by amssymb.
+\usepackage{mathtools}
+\usepackage[
+  math-style=ISO,
+  bold-style=ISO,
+  sans-style=italic,
+  nabla=upright,
+  partial=upright,
+  warnings-off={mathtools-colon,mathtools-overbracket},
+]{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{xfrac}
+
+% Numbers and units follow the active document language.
+\usepackage[
+  locale=US,
+  separate-uncertainty=true,
+  per-mode=symbol-or-fraction,
+]{siunitx}
+\addto\extrasamerican{\sisetup{locale=US}}
+\addto\extrasngerman{\sisetup{locale=DE}}
+
+% Tables and graphics. Caption/subcaption support is provided by tudothesis.
+\usepackage{booktabs}
+\usepackage{graphicx}
+\graphicspath{{figures/}{plots/}{logos/}}
+\usepackage{scrhack}
+\usepackage{float}
+\floatplacement{figure}{htbp}
+\floatplacement{table}{htbp}
+\usepackage[section, below]{placeins}
+\usepackage{pdfpages}
+\pdfvariable minorversion=7
+
+\usepackage{enumitem}
+\setlist{nolistsep}
+\usepackage[shortcuts]{extdash}
+
+% Each document declares its own .bib resource after loading this header.
+\usepackage[
+  backend=biber,
+  autolang=hyphen,
+]{biblatex}
+
+% Load hyperlink support near the end, before bookmarks and glossaries.
+\usepackage[
+  unicode,
+  colorlinks=true,
+  linkcolor=tugreen!55!black,
+  citecolor=tugreen!55!black,
+  urlcolor=blue!70!black,
+]{hyperref}
+\usepackage{bookmark}
+\usepackage[toc, acronym]{glossaries}
+\makenoidxglossaries % Uses LaTeX reruns; no external indexer is required.

@@ -1,0 +1,91 @@
+% Standalone reference document. Build from the repository root with make examples.
+\input{header.tex}
+\input{commands.tex}
+\addbibresource{examples/references.bib}
+\input{examples/glossary.tex}
+\hypersetup{pdftitle={LaTeX Formatting Examples}, pdfauthor={}}
+
+\begin{document}
+\mainmatter
+\chapter{Formatting Examples}
+These examples share the thesis settings and are excluded from the thesis itself.
+All numerical values below are illustrative.
+
+\section{Text, citations, and acronyms}
+Use \emph{emphasis}, \enquote{language-aware quotation marks}, and citations such as
+\autocite{kuypers}. A citation in running text can use \textcite{ma-sebastian}.
+Online resources can be cited in the same way \autocite{texmaker}.
+
+The first use of \gls{ml} expands the acronym; later uses print \gls{ml}.
+The term \gls{estimator} appears in the glossary.
+Use \verb|\glspl{key}| for the plural of a defined term.
+
+\section{Mathematics, numbers, and units}
+\label{sec:example-math}
+For a vector \(\vect{x} = (x_1, \ldots, x_N)\), the weighted mean is
+\begin{equation}
+  \bar{x} = \frac{\sum_{i=1}^{N} w_i x_i}{\sum_{i=1}^{N} w_i}.
+  \label{eq:weighted-mean}
+\end{equation}
+Refer to it with Equation~\eqref{eq:weighted-mean}.
+Inline fractions such as \(\sfrac{1}{2}\) are also supported.
+Typeset measurements as \qty{1.23(4)}{\metre}, speeds as
+\qty{3.0e8}{\metre\per\second}, and percentages as \qty{95}{\percent}.
+
+\begin{otherlanguage}{ngerman}
+Die Zahlenformatierung folgt der Sprache: \num{1234.56} und \qty{1.23(4)}{\metre}.
+\end{otherlanguage}
+
+Back in English, the same value is \num{1234.56}.
+
+\section{Figures and references}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.45\linewidth]{logos/tu-logo.pdf}
+  \caption{The template's TU Dortmund logo, used here to demonstrate image inclusion.}
+  \label{fig:example-logo}
+\end{figure}
+Refer to Figure~\ref{fig:example-logo} and Section~\ref{sec:example-math}.
+Place scientific figures in \texttt{figures/} and generated plots in \texttt{plots/}.
+Use \verb|\includegraphics| with the filename; both directories are searched automatically.
+
+\begin{figure}
+  \centering
+  \begin{subfigure}{0.45\linewidth}
+    \centering
+    \fbox{\rule{0pt}{15mm}\rule{0.8\linewidth}{0pt}}
+    \caption{First panel.}
+    \label{fig:example-panel-a}
+  \end{subfigure}
+  \hfill
+  \begin{subfigure}{0.45\linewidth}
+    \centering
+    \fbox{\rule{0pt}{15mm}\rule{0.8\linewidth}{0pt}}
+    \caption{Second panel.}
+    \label{fig:example-panel-b}
+  \end{subfigure}
+  \caption{Replace the boxes with images to create a figure with two panels.}
+  \label{fig:example-panels}
+\end{figure}
+Individual panels can be referenced as Figure~\ref{fig:example-panel-a}.
+
+\section{Tables}
+\begin{table}
+  \centering
+  \caption{Illustrative measurements. The \texttt{S} column aligns decimal markers.}
+  \label{tab:example-measurements}
+  \begin{tabular}{l S[table-format=2.2]}
+    \toprule
+    Sample & {Time / \unit{\second}} \\
+    \midrule
+    A & 1.23 \\
+    B & 12.34 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+Table~\ref{tab:example-measurements} uses \texttt{booktabs} rules and places its caption above the data.
+
+\backmatter
+\printnoidxglossaries
+\printbibliography
+\end{document}

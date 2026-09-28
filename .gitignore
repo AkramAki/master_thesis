@@ -1,0 +1,43 @@
+# Generated documents and LaTeX build products (keep source figure PDFs).
+/build/
+/thesis.pdf
+/formatting.pdf
+/examples/formatting.pdf
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.lof
+*.log
+*.lot
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+*.xdv
+*.dvi
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.ist
+
+# Editor and operating-system temporary files.
+.DS_Store
+._*
+*~
+*.swp
+*.swo
+
+# Local Python environments and caches for possible analysis/plotting scripts.
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.pytest_cache/
+.ruff_cache/

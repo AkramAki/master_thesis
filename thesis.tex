@@ -1,0 +1,42 @@
+% Build from the repository root with latexmk or make.
+\input{header.tex}
+\input{commands.tex}
+\input{metadata.tex}
+\addbibresource{references.bib}
+\input{content/glossary.tex}
+
+\begin{document}
+\frontmatter
+\maketitle
+\makecorrectorpage
+
+\input{content/abstract_en.tex}
+\input{content/abstract_de.tex}
+
+\begingroup
+  \hypersetup{hidelinks}
+  \tableofcontents
+\endgroup
+% Enable these if useful once figures and tables have been added:
+% \listoffigures
+% \listoftables
+
+\mainmatter
+\input{content/01_introduction.tex}
+\input{content/02_background.tex}
+\input{content/03_methods.tex}
+\input{content/04_analysis.tex}
+\input{content/05_results.tex}
+\input{content/06_conclusion.tex}
+
+\appendix
+\input{content/appendix.tex}
+
+\backmatter
+\printnoidxglossaries
+\printbibliography
+% Adapt this optional section before enabling it:
+% \input{content/ai_usage.tex}
+\input{content/declaration.tex}
+
+\end{document}
